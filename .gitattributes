@@ -1,0 +1,40 @@
+# 仓库内部统一按文本处理，检出时由 Git 自动决定换行符
+* text=auto
+
+# 源码一律 LF（以后进 Docker / Linux 部署不会出现 CRLF 幽灵 diff）
+*.js    text eol=lf
+*.mjs   text eol=lf
+*.cjs   text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.vue   text eol=lf
+*.json  text eol=lf
+*.jsonc text eol=lf
+*.md    text eol=lf
+*.css   text eol=lf
+*.scss  text eol=lf
+*.html  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.sql   text eol=lf
+*.sh    text eol=lf
+
+# Windows 专用脚本保持 CRLF，否则 cmd 会出错
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+*.ps1   text eol=crlf
+
+# 二进制文件不做换行符处理
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.pdf   binary
+
+# lockfile 是自动生成的，PR 里折叠显示（但仍可 diff）
+pnpm-lock.yaml linguist-generated=true

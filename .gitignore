@@ -1,0 +1,45 @@
+# ── 依赖 ────────────────────────────────────────────
+node_modules/
+.pnpm-store/
+
+# ── 构建产物（可以随时重新生成，不该进版本库）───────
+dist/
+build/
+out/
+.vite/
+*.tsbuildinfo
+
+# ── 环境变量与密钥 ★绝对不能提交★ ──────────────────
+.env
+.env.*
+!.env.example
+
+# ── 日志 ────────────────────────────────────────────
+*.log
+npm-debug.log*
+pnpm-debug.log*
+logs/
+
+# ── 测试覆盖率报告 ──────────────────────────────────
+coverage/
+
+# ── 编辑器 / IDE ────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
+*.swp
+
+# ── 操作系统 ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── 本地数据库数据（用 Docker 起，数据不该进仓库）────
+*.sqlite
+*.sqlite3
+pgdata/
+
+# ── agent 会话记录（体积大且含隐私）──────────────────
+.pi/sessions/
