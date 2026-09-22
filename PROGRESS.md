@@ -9,12 +9,12 @@
 
 | 项 | 值 |
 |---|---|
-| 最后更新 | 2026-09-18（初始化） |
-| 当前 Phase | **Phase 0 — 工具链（进行中：环境✅ / Git⬜ / DevTools⬜）** |
-| 上次停在哪 | 环境体检完成；Node 24.19.0 + npm 11.17.0 + pnpm 12.4.2 已装并实测通过 |
-| 当前唯一目标 | **git init + .gitignore + 首次提交 + 建 GitHub 仓库并推送** |
-| 累计有效学习时长 | 1h |
-| 距求职期 | ~83 天 |
+| 最后更新 | 2026-09-20 |
+| 当前 Phase | **Phase 0 — 工具链（环境✅ / Git 基础✅ / 分支与冲突⬜ / DevTools⬜ / 终端⬜）** |
+| 上次停在哪 | 首次推送成功：3 条提交已上 GitHub（`jxnclzl/js-ts-fullstack-journey`）；修好 git 的 github.com 代理 |
+| 当前唯一目标 | **分支与合并：建分支 → 制造并解决一次真实冲突 → push 分支 → 开 PR 合并** |
+| 累计有效学习时长 | 3h |
+| 距求职期 | ~81 天 |
 
 ### 0.1 关键决策记录（Decision Log）
 
@@ -26,7 +26,8 @@
 | 2026-09-18 | 前后端分离，**不用 Nuxt 起步** | 必须亲手走通 HTTP / REST / 鉴权 / CORS | 否 |
 | 2026-09-18 | 数据库：**PostgreSQL 主线 + MySQL 对照 1 天** | 小厂 JD 多写 MySQL；但 Phase 6 的 RAG 必须 `pgvector` | 否 |
 | 2026-09-18 | 前端 UI 库锁定 **Element Plus** | 小厂后台管理类 JD 出现率最高 | 可换 Naive UI |
-| 2026-09-18 | 网络直连，**不配镜像/代理** | 学习者确认直连速度快 | 出现卡顿即改 |
+| 2026-09-18 | 网络直连，**不配镜像/代理** | 学习者确认直连速度快 | 出现卡顿即改 → **已于 09-20 触发，见下行** |
+| 2026-09-20 | **推翻「网络直连」**：`github.com` 直连被 TLS reset，git 改为走本地代理 `127.0.0.1:7890`（Clash Verge） | 实测：直连无响应 / 走代理 `HTTP/1.1 200 Connection established` | 若 Clash 端口变化需同步修改 |
 | 2026-09-18 | 本机 16G，Docker / WSL2 可用 | Phase 5 用 Docker 起 PG + MySQL | — |
 | 2026-09-18 | GitHub 账号已有，仓库愿意公开 | 求职作品集需要 | — |
 | 2026-09-18 | **目标岗位 = 全栈**（前端 Vue 重、后端 NestJS） | 学习者确认 | 可改，影响简历与项目重心 |
@@ -68,9 +69,16 @@ TypeScript 全部语法 · JSX · 所有框架 API
 | 技能 | 目标 | 当前 | 证据 |
 |---|---|---|---|
 | 终端基本操作（导航/管道/环境变量） | 3 | 0 | — |
+| 环境自检（`where node` / 版本核对） | 3 | 1 | 09-20 自己跑出 `where.exe node` / `node -v` / `pnpm -v`，能辨认 pi 运行时与真实 Node |
 | Node 版本管理与运行脚本 | 3 | 0 | — |
 | pnpm / npm 命令 | 3 | 0 | — |
-| **Git**（add/commit/branch/merge/冲突/PR） | 3 | 0 | — |
+| Git 基础流程（init / status / add / commit / log） | 3 | 2 | 09-20 仅给「意图+文件」，自己拼出 commit 2/3 的命令 |
+| **Git 提交粒度与 message 规范** | 3 | 2 | 09-20 自动拆出 3 条提交且文件分组全对；type 选错（feat→docs）后被纠正 |
+| Git 远程（remote / push / 上游追踪） | 3 | 2 | 09-20 自己完成第二次 push（不写 `-u`），能解释上游是什么 |
+| Git 改写历史（rebase -i / reword） | 3 | 1 | 09-20 完成一次 `rebase -i HEAD~2` 改两条 message |
+| Git 分支与合并 / 冲突解决 | 3 | 0 | — |
+| Pull Request 流程 | 3 | 0 | — |
+| 文档写作（README / PR 描述） | 2 | 1 | 09-20 由 AI 代笔（`AGENTS.md` §10 例外），结构已理解但未独立写过 |
 | VS Code 调试（断点 / launch.json） | 3 | 0 | — |
 | **DevTools**（Elements/Console/Sources/Network/Application） | 3 | 0 | — |
 | 读报错与 stack trace | 3 | 0 | — |
@@ -201,7 +209,11 @@ TypeScript 全部语法 · JSX · 所有框架 API
 
 | 技能 | 上次复习 | 下次复习 | 次数 |
 |---|---|---|---|
-| — | — | — | — |
+| Git：`origin/main` 只是快照，不 `fetch` 就不更新（而 `git status` 不会警告） | 2026-09-20 | 2026-09-21 | 1 |
+| Git：commit 的哈希 = hash(tree + parent + author + committer + message) | 2026-09-20 | 2026-09-21 | 1 |
+| Git：`git branch -vv` 里 `[origin/main]` 是**配置**，不是指针 | 2026-09-20 | 2026-09-22 | 1 |
+| 文档：为什么 `How I Work` 必须写成「限制 AI」而不是「AI 代写」？（面试会问） | 2026-09-20 | 2026-09-21 | 1 |
+| 文档：README 的 7 个 section 分别写给谁看 | 2026-09-20 | 2026-09-23 | 1 |
 
 ---
 
@@ -231,7 +243,10 @@ TypeScript 全部语法 · JSX · 所有框架 API
 |---|---|---|---|---|---|
 | 2026-09-18 | 0.5h | — | 建立 `AGENTS.md` / `ROADMAP.md` / `PROGRESS.md` | — | — |
 | 2026-09-18 | 0.5h | — | 决策改为 **Vue 主线 + 小厂目标**；同步更新三份文档 | — | — |
-| 2026-09-18 | 1h | Phase 0 | **环境体检 + 装 Node 24.19.0 + pnpm 12.4.2 + 冒烟测试**（真实装 typescript 7.0.2 并跑 `tsc`） | ✅ `where node` 指向 Program Files；`node/npm/pnpm/tsc` 版本全部正确 | **下一步：git init + 首次提交 + GitHub** |
+| 2026-09-18 | 1h | Phase 0 | **环境体检 + 装 Node 24.19.0 + pnpm 12.4.2 + 冒烟测试** | ✅ `where node` 指向 Program Files；`node/npm/pnpm/tsc` 版本全对 | — |
+| 2026-09-20 | 1.5h | Phase 0 | **Git 从零**：全局配置 / `init -b main` / `.gitignore`+`.gitattributes` / 3 条提交 / `rebase -i` 改 message / 建远程仓 / 首次 push | ✅ 3 条提交粒度全对；自己能拼 commit 命令；独立完成 rebase reword | — |
+| 2026-09-20 | 2h | Phase 0 | 分支 → README.md（AI 代笔）→ 2 条提交 → push；`Git.md` 学习笔记（319 行）；开 PR #1 | ✅ 分支/HEAD/refs/config 概念已澄清；README 已重写 | **待做**：合并 PR → 在 main 上补交 AGENTS/PROGRESS → 制造并解决一次合并冲突 |
+| 2026-09-20 | — | — | 欠 2 道费曼题：① `How I Work` 为何是「限制 AI」 ② `Git.md` 只留 3 节该留哪 3 节 → 已入 SRS 队列 | — | 下次会话开头抽问 |
 
 ---
 

@@ -236,6 +236,11 @@ AI 每次会话无记忆。**`PROGRESS.md` 是唯一的长期记忆。**
    → 先确认命令能否正常跑，**不要随手加 `--allow-scripts`**。
 6. **环境基线已实测通过（2026-09-18）**：`node -v` = v24.19.0 / `npm -v` = 11.17.0 /
    `pnpm -v` = 12.4.2 / `pnpm exec tsc --version` = 7.0.2（真实装包 + 跑编译器验证过）。
+7. **网络：`github.com` 直连会被 TLS reset**（2026-09-20 实测：直连无响应，走代理返回 `200 Connection established`）。
+   本机跑的是 **Clash Verge（`verge-mihomo`）**，代理端口 `127.0.0.1:7890`（Windows 系统代理另设在 65532）。
+   **git 不会自动使用 Windows 系统代理**，所以已在 `~/.gitconfig` 里配了 github.com 专用代理：
+   `http.https://github.com/.proxy = http://127.0.0.1:7890`。
+   → 以后 `git push` 又失败时，**第一步先查 Clash 的端口有没有变**（`netstat -ano | findstr LISTENING`），再谈别的。
 
 ---
 
