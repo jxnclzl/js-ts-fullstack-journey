@@ -18,7 +18,7 @@ This repository records the process as it actually happens — including the par
 
 ## Progress
 
-- [x] **Phase 0 — Tooling** · terminal, Git, browser DevTools, Node 24 + pnpm
+- [x] **Phase 0 — Tooling** · ✅ 2026-09-22 · terminal, Git, browser DevTools, Node 24 + pnpm
 - [ ] **Phase 1 — Web fundamentals** · semantic HTML, CSS layout, browser rendering, events
 - [ ] **Phase 2 — JavaScript deep dive** · scope, closures, `this`, prototype, event loop, async
 - [ ] **Phase 3 — TypeScript** · generics, type narrowing, utility types
