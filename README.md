@@ -18,7 +18,7 @@ This repository records the process as it actually happens — including the par
 
 ## Progress
 
-- [x] **Phase 0 — Tooling** · ✅ 2026-09-22 · terminal, Git, browser DevTools, Node 24 + pnpm
+- [x] **Phase 0 — Tooling** · ✅ 2026-09-22 · terminal, Git(branch, PR), browser DevTools, Node 24 + pnpm
 - [ ] **Phase 1 — Web fundamentals** · semantic HTML, CSS layout, browser rendering, events
 - [ ] **Phase 2 — JavaScript deep dive** · scope, closures, `this`, prototype, event loop, async
 - [ ] **Phase 3 — TypeScript** · generics, type narrowing, utility types
@@ -34,7 +34,7 @@ This repository records the process as it actually happens — including the par
 | Language   | TypeScript 7                                                |
 | Frontend   | Vue 3.5, Vite, Vue Router 5, Pinia 4, Element Plus          |
 | Backend    | NestJS 12, Prisma 7                                         |
-| Database   | PostgreSQL (with `pgvector`), MySQL                          |
+| Database   | PostgreSQL (with `pgvector`), MySQL                         |
 | Testing    | Vitest, Vue Test Utils                                      |
 | Tooling    | pnpm, ESLint (flat config), Prettier, Docker                |
 | Runtime    | Node.js 24 LTS                                              |
