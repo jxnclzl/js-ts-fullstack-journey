@@ -12,49 +12,49 @@
 // ── 第一组：typeof 会返回什么 ────────────────────────────────
 
 console.log(typeof '42');
-// 预测: string
+// 预测:string
 
 console.log(typeof 42);
-// 预测: 
+// 预测:number
 
 console.log(typeof 42.5);
-// 预测:
+// 预测:number
 
 console.log(typeof undefined);
-// 预测:
+// 预测:undefined
 
 console.log(typeof null);
-// 预测:
+// 预测:object
 
 console.log(typeof []);
-// 预测:
+// 预测:object
 
 console.log(typeof {});
-// 预测:
+// 预测:object
 
 
 // ── 第二组：不同类型相遇，会变成什么 ─────────────────────────
 
 console.log('5' + 5);
-// 预测:
+// 预测:'55'
 
 console.log('5' * '2');
-// 预测:
+// 预测:10
 
 console.log(null + 1);
-// 预测:
+// 预测:NaN
 
 console.log(undefined + 1);
-// 预测:
+// 预测:undefined
 
 console.log(JSON.stringify([] + []));
-// 预测: （别被 JSON.stringify 干扰，它只是让「空字符串」这类看不见的东西显形）
+// 预测:[] （别被 JSON.stringify 干扰，它只是让「空字符串」这类看不见的东西显形）
 
 console.log([] + {});
-// 预测:
+// 预测:null
 
 console.log(true + true);
-// 预测:
+// 预测:true
 
 
 // ── 第三组（加分）：你答完上面再看 ───────────────────────────
